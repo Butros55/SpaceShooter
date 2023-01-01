@@ -48,7 +48,7 @@ public class SpaceShip : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Meteoride")
         {
-
+            audioSource.Play();
             Destroy(other.gameObject);
             Destroy(SpaceShipDestroy);
         }
