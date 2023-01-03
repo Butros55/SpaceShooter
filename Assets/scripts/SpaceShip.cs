@@ -21,8 +21,9 @@ public class SpaceShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
         Shooting();
+        Movement();
+        StartOfLevel();
     }
 
     void Movement()
@@ -51,6 +52,15 @@ public class SpaceShip : MonoBehaviour
             audioSource.Play();
             Destroy(other.gameObject);
             Destroy(SpaceShipDestroy);
+        }
+    }
+
+    private void StartOfLevel() {
+        Vector3 movement = Vector3.up * 10 * Time.deltaTime;
+
+        Vector3 position = transform.position;
+        if (position.y < -10) {
+            transform.Translate(movement);
         }
     }
 }
