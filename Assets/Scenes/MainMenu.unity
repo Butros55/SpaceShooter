@@ -1051,6 +1051,7 @@ GameObject:
   - component: {fileID: 309108483}
   - component: {fileID: 309108488}
   - component: {fileID: 309108489}
+  - component: {fileID: 309108490}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1169,6 +1170,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &309108490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309108482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9973decd5156a704a807de085f49a752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioToNextScreen: 0
+  Scene: Game
+  ChangeAfterSec: 2
+  OnAwake: 0
 --- !u!1 &343569179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,7 +1649,6 @@ GameObject:
   m_Component:
   - component: {fileID: 549471895}
   - component: {fileID: 549471896}
-  - component: {fileID: 549471897}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1676,22 +1692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f61659cd6f0704e8473d43e6be7611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &549471897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549471894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9973decd5156a704a807de085f49a752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioToNextScreen: 0
-  Scene: Game
-  ChangeAfterSec: 2
-  OnAwake: 0
 --- !u!1 &555506801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,9 +2227,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794171642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
-        m_MethodName: SetFullscreen
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5261,7 +5261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549471897}
+      - m_Target: {fileID: 309108490}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: ChangeSceneTo
         m_Mode: 1

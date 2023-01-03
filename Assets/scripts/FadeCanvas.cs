@@ -34,6 +34,12 @@ public class FadeCanvas : MonoBehaviour
         SetTriggerOn = true;
     }
 
+    private void Update() {
+        if (SetTriggerOn || OnAwake) {
+            Fade();
+        }
+    }
+
     private void Fade() {
         if (fadeIn) {
             if (myUI.alpha < 1) {
@@ -67,12 +73,6 @@ public class FadeCanvas : MonoBehaviour
                 fadeIn = false;
                 fadeBack = false;
             }
-        }
-    }
-
-    private void Update() {
-        if (SetTriggerOn || OnAwake) {
-            Fade();
         }
     }
 }

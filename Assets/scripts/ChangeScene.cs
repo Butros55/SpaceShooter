@@ -22,6 +22,7 @@ public class ChangeScene : MonoBehaviour
     }
     // Start is called before the first frame update
     public void ChangeSceneTo() {
+        Time.timeScale = 1f;
         Invoke("LoadScene", ChangeAfterSec);
     }
 
