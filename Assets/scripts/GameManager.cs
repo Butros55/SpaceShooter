@@ -11,14 +11,8 @@ public class GameManager : MonoBehaviour
 
     public bool GameOver = false;
 
-    public AudioSource Died;
-    public AudioSource meteorDestroy;
-
     // Start is called before the first frame update
     private void Awake() {
         instance = this;
     }
-
-    
-
 }

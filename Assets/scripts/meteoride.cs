@@ -13,6 +13,7 @@ public class meteoride : MonoBehaviour
     void Update() {
         transform.Rotate(new Vector3(180,180,0) * Time.deltaTime);
         transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
+        DestroyMeteroide();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -28,5 +29,12 @@ public class meteoride : MonoBehaviour
     private void Start() {
         audioSource = GetComponent<AudioSource>();
         Collider = GetComponent<Collider>();
+    }
+
+    private void DestroyMeteroide() {
+    Vector3 position = transform.position;
+    if (position.y <= -18) {
+        Destroy(gameObject);
+    }
     }
 }
