@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class VolumeController : MonoBehaviour
 {
-    public AudioMixer MasterMixer;
+    public Slider MasterSlider;
+    public Slider MusicSlider;
     public AudioMixer MusicMixer;
 
     private void Start() {
@@ -25,6 +27,8 @@ public class VolumeController : MonoBehaviour
         float masterVolume = PlayerPrefs.GetFloat("MasterVolume");
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
         MusicMixer.SetFloat("Volume", musicVolume);
-        MasterMixer.SetFloat("Volume", masterVolume);
+        AudioListener.volume = masterVolume;
+        MasterSlider.value = masterVolume;
+        MusicSlider.value = musicVolume;
     }
 }
