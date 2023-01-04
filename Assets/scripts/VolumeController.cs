@@ -10,7 +10,7 @@ public class VolumeController : MonoBehaviour
     public Slider MusicSlider;
     public AudioMixer MusicMixer;
 
-    private void Start() {
+    private void Awake() {
         LoadVolumes();
     }
     public void SetMasterVolume(float volume) {
