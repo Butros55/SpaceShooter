@@ -12,6 +12,14 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetButtonDown("Pause")) {
             PauseUnpause();
         }
+        if (Input.GetButtonDown("Slomo")) {
+            if (Time.timeScale == 1) {
+                Time.timeScale = 0.001f;
+            }
+            else {
+                Time.timeScale = 1f;
+            }
+        }
     }
 
     // Update is called once per frame

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed2046ddb91130241ba7d918383901f3, type: 2}
+  - {fileID: 2100000, guid: 226554ec6510b6548bd8f1c8db9cf99e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,9 +245,11 @@ MonoBehaviour:
   meteoridelayer1: {fileID: 1941767002785148439}
   meteoridelayer2: {fileID: 1941767003455627878}
   meteoridelayer3: {fileID: 1941767003493298183}
-  ExplosionTimer: 0.1
-  DestroyTimer: 2
-  ExplosionDuration: 40
+  CurrentExplosionTimer: 0
+  RevertedExplosionTimer: 0
+  ExplosionTime: 0.5
+  ExplosionScale: 2
+  ExplosionDivision: 0.9
 --- !u!54 &1941767003107084903
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -325,7 +327,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed2046ddb91130241ba7d918383901f3, type: 2}
+  - {fileID: 2100000, guid: 226554ec6510b6548bd8f1c8db9cf99e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -408,7 +410,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed2046ddb91130241ba7d918383901f3, type: 2}
+  - {fileID: 2100000, guid: 226554ec6510b6548bd8f1c8db9cf99e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -494,7 +496,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed2046ddb91130241ba7d918383901f3, type: 2}
+  - {fileID: 2100000, guid: 226554ec6510b6548bd8f1c8db9cf99e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

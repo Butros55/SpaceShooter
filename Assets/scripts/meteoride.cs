@@ -11,11 +11,14 @@ public class meteoride : MonoBehaviour
     public GameObject meteoridelayer3;
     AudioSource audioSource;
     private Collider Collider;
-    public float ExplosionTimer;
-    public float DestroyTimer;
+    public float CurrentExplosionTimer = 0;
+    public float RevertedExplosionTimer;
+    public float ExplosionTime;
     private bool isDestroyed = false;
-    public float ExplosionDuration;
+    public float ExplosionScale;
+    public float ExplosionDivision;
     private Color ExplosionColor;
+
     private void Start() {
         audioSource = GetComponent<AudioSource>();
         Collider = GetComponent<Collider>();
@@ -23,18 +26,29 @@ public class meteoride : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-            transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
-
-            if (meteoridelayer0 != null && isDestroyed) {
-            ExplosionTimer -= Time.deltaTime;
-            ExplosionColor = new Color(40 / (ExplosionTimer * ExplosionDuration), 10 / (ExplosionTimer * ExplosionDuration), 0 / (ExplosionTimer * ExplosionDuration));
-            meteoridelayer0.GetComponent<MeshRenderer>().material.color = ExplosionColor;
-            meteoridelayer1.GetComponent<MeshRenderer>().material.color = ExplosionColor;
-            meteoridelayer2.GetComponent<MeshRenderer>().material.color = ExplosionColor;
-            meteoridelayer3.GetComponent<MeshRenderer>().material.color = ExplosionColor;
-            if (ExplosionTimer <= 0) {
+        transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
+        if (meteoridelayer0 != null && isDestroyed) {
+            CurrentExplosionTimer += Time.deltaTime;
+            if (CurrentExplosionTimer <= ExplosionTime * ExplosionDivision) {
+                RevertedExplosionTimer = CurrentExplosionTimer;
+                ExplosionColor = new Color(40 * (CurrentExplosionTimer  / ExplosionTime * ExplosionScale), 10 * (CurrentExplosionTimer  / ExplosionTime * ExplosionScale), 1 * (CurrentExplosionTimer  / ExplosionTime * ExplosionScale));
+                meteoridelayer0.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+                meteoridelayer1.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+                meteoridelayer2.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+                meteoridelayer3.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+            }
+            else {
+                RevertedExplosionTimer -= Time.deltaTime * (ExplosionDivision / (1f - ExplosionDivision));
+                ExplosionColor = new Color(40 * (RevertedExplosionTimer  / ExplosionTime * ExplosionScale), 10 * (RevertedExplosionTimer  / ExplosionTime * ExplosionScale), 1 * (RevertedExplosionTimer  / ExplosionTime * ExplosionScale));
+                meteoridelayer0.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+                meteoridelayer1.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+                meteoridelayer2.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+                meteoridelayer3.GetComponent<MeshRenderer>().material.color = ExplosionColor;
+            }
+            if (CurrentExplosionTimer >= ExplosionTime) {
                 Destroy(meteoridelayer0);
             }
+            Debug.Log(ExplosionColor);
         }
         transform.Rotate(new Vector3(180,180,0) * Time.deltaTime);
         DestroyMeteroide();
@@ -52,7 +66,7 @@ public class meteoride : MonoBehaviour
 
     private void DestroyMeteroide() {
     Vector3 position = transform.position;
-    if (position.y <= -18 || DestroyTimer <= 0) {
+    if (position.y <= -18) {
         Destroy(gameObject);
     }
     }
