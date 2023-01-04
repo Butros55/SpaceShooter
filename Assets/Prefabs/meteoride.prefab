@@ -241,7 +241,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  meteoridelayer: {fileID: 1941767004558876948}
+  meteoridelayer0: {fileID: 1941767004558876948}
+  meteoridelayer1: {fileID: 1941767002785148439}
+  meteoridelayer2: {fileID: 1941767003455627878}
+  meteoridelayer3: {fileID: 1941767003493298183}
+  ExplosionTimer: 0.1
+  DestroyTimer: 2
+  ExplosionDuration: 40
 --- !u!54 &1941767003107084903
 Rigidbody:
   m_ObjectHideFlags: 0
