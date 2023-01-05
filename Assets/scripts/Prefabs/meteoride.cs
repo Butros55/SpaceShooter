@@ -63,9 +63,9 @@ public class meteoride : MonoBehaviour
             }
             Debug.Log(ExplosionColorScale);
         }
-        if (!isDestroyed) {
+        // if (!isDestroyed) {
         transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
-        }
+        // }
         transform.Rotate(new Vector3(180,180,0) * Time.deltaTime);
         DestroyMeteroide();
     }
