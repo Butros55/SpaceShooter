@@ -11,8 +11,8 @@ public class meteoride : MonoBehaviour
     public GameObject meteoridelayer3;
     AudioSource audioSource;
     private Collider Collider;
-    public float CurrentExplosionTimer = 0;
-    public float RevertedExplosionTimer;
+    private float CurrentExplosionTimer = 0;
+    private float RevertedExplosionTimer;
     public float ExplosionTime;
     private bool isDestroyed = false;
     public float ExplosionScale;
