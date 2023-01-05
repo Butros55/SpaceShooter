@@ -46,14 +46,14 @@ public class SpaceShip : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Meteoride")
-        {
-            audioSource.Play();
-            Destroy(other.gameObject);
-            Destroy(SpaceShipDestroy);
-        }
-    }
+    // private void OnTriggerEnter(Collider other) {
+    //     if (other.gameObject.tag == "Meteoride")
+    //     {
+    //         audioSource.Play();
+    //         Destroy(other.gameObject);
+    //         Destroy(SpaceShipDestroy);
+    //     }
+    // }
 
     private void StartOfLevel() {
         Vector3 movement = Vector3.up * 10 * Time.deltaTime;

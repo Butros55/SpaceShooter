@@ -247,9 +247,10 @@ MonoBehaviour:
   meteoridelayer3: {fileID: 1941767003493298183}
   CurrentExplosionTimer: 0
   RevertedExplosionTimer: 0
-  ExplosionTime: 0.5
-  ExplosionScale: 2
-  ExplosionDivision: 0.9
+  ExplosionTime: 0.2
+  ExplosionScale: 10
+  ExplosionDivision: 0.1
+  ExplosionColor: {r: 0.4811321, g: 0.10666607, b: 0.25134608, a: 1}
 --- !u!54 &1941767003107084903
 Rigidbody:
   m_ObjectHideFlags: 0
