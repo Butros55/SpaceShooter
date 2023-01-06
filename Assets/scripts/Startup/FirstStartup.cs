@@ -20,18 +20,30 @@ public class FirstStartup : MonoBehaviour
         if (!PlayerPrefs.HasKey("MusicVolume")) {
             PlayerPrefs.SetFloat("MusicVolume", 0);
         }
+        if (!PlayerPrefs.HasKey("Vsync")) {
+            PlayerPrefs.SetInt("Vsync", 1);
+            PlayerPrefs.SetString("VsyncText", "On");
+        }
+        if (!PlayerPrefs.HasKey("Fullscreen")) {
+            PlayerPrefs.SetString("Fullscreen", "true");
+            PlayerPrefs.SetString("FullscreenText", "On");
+            Screen.fullScreen = true;
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadVolumes();
+        LoadValues();
     }
     
-    void LoadVolumes() {
+    void LoadValues() {
         float masterVolume = PlayerPrefs.GetFloat("MasterVolume");
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
         MusicMixer.SetFloat("Volume", musicVolume);
         AudioListener.volume = masterVolume;
+
+        int Vsync = PlayerPrefs.GetInt("Vsync");
+        QualitySettings.vSyncCount = Vsync;
     }
 }
