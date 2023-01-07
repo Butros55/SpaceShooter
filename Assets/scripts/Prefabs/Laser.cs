@@ -14,7 +14,7 @@ public class Laser : MonoBehaviour
 
     private void DestroyLaser() {
         Vector3 position = transform.position;
-        if (position.y >= 28) {
+        if (position.y >= 200) {
             Destroy(gameObject);
         }
     }
