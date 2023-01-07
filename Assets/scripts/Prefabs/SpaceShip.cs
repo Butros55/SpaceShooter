@@ -6,9 +6,6 @@ public class SpaceShip : MonoBehaviour
 {
 
     public float speed;
-    public GameObject LaserObject;
-    public GameObject CannonLeft;
-    public GameObject CannonRight;
     public GameObject SpaceShipDestroy;
     private AudioSource audioSource;
 
@@ -21,7 +18,6 @@ public class SpaceShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shooting();
         Movement();
         StartOfLevel();
     }
@@ -35,15 +31,6 @@ public class SpaceShip : MonoBehaviour
         position.x = Mathf.Clamp(position.x, -29, 29);
         transform.position = position;
 
-    }
-
-    void Shooting()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Instantiate(LaserObject, CannonRight.transform.position, LaserObject.transform.rotation);
-            Instantiate(LaserObject, CannonLeft.transform.position, LaserObject.transform.rotation);
-        }
     }
 
     // private void OnTriggerEnter(Collider other) {
