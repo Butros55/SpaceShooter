@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
 
-    [SerializeField] private bool AudioToNextScreen = false;
+    [SerializeField] private bool ObjectToNextScreen = false;
     [SerializeField] private string Scene;
     [SerializeField] private float ChangeAfterSec;
     [SerializeField] private bool OnAwake = false;
 
     private void Awake() {
-        if (AudioToNextScreen) {
+        if (ObjectToNextScreen) {
         DontDestroyOnLoad(gameObject);
         }
     }

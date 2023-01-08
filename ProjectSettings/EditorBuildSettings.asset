@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7c50b003ef9dfae40bbdf5de7c3108ef
   - enabled: 1
+    path: Assets/Scenes/SpaceShipEditor.unity
+    guid: 901eb33c850ff514ca5ad3e7e8353ca9
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

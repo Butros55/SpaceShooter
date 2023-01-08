@@ -16,13 +16,16 @@ public class BuildingManager : MonoBehaviour
     public float gridSize;
     public bool gridOn;
     public bool canPlace;
-    public bool isPlaced = false;
+    public float rotateAmount;
     [SerializeField] private Toggle gridToggle;
+    public Material BaseMaterial;
+    private int lastIndex;
 
     // Update is called once per frame
     void Update()
     {
         if(pendingObject != null) {
+
             if(gridOn) {
                 pendingObject.transform.position = new Vector2(
                     RoundToNearestGrid(pos.x),
@@ -36,12 +39,19 @@ public class BuildingManager : MonoBehaviour
 
             UpdateMaterials();
 
-            if(Input.GetMouseButtonDown(0) && canPlace) {
-                PlaceObject();
+
+            if(Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift)) {
+                PlaceObjectMutiple();
+            }
+            else if(Input.GetMouseButtonDown(0) && canPlace) {
+                PlaceObjectSingle();
             }
 
             if(Input.GetMouseButtonDown(1)) {
                 UnselectObject();
+            }
+            if(Input.GetKeyDown(KeyCode.R)) {
+                RotateObject();
             }
         }
     }
@@ -56,12 +66,21 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(int index) {
         pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        BaseMaterial = pendingObject.GetComponent<MeshRenderer>().material;
+        lastIndex = index;
     }
 
-    public void PlaceObject() {
-        isPlaced = true;
-        pendingObject.GetComponent<MeshRenderer>().material = materials[2];
+    public void PlaceObjectSingle() {
+        pendingObject.GetComponent<MeshRenderer>().material = BaseMaterial;
         pendingObject = null;
+    }
+
+    public void PlaceObjectMutiple() {
+        pendingObject.GetComponent<MeshRenderer>().material = BaseMaterial;
+        if(canPlace) {
+            pendingObject = null;
+            pendingObject = Instantiate(objects[lastIndex], pos, transform.rotation);
+        }
     }
 
     public void UnselectObject() {
@@ -93,5 +112,9 @@ public class BuildingManager : MonoBehaviour
         if(!canPlace) {
             pendingObject.GetComponent<MeshRenderer>().material = materials[1];
         }
+    }
+
+    void RotateObject() {
+        pendingObject.transform.Rotate(Vector3.back, rotateAmount);
     }
 }

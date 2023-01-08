@@ -17,12 +17,12 @@ public class WeaponFire : MonoBehaviour
     void Shooting() { 
         if(autoFire) {
             if (Input.GetButton("Fire1")) {
-                Instantiate(ParticelObject, WeaponObject.transform.position, ParticelObject.transform.rotation);
+                Instantiate(ParticelObject, WeaponObject.transform.position, WeaponObject.transform.rotation);
             }
         }
         else {
             if (Input.GetButtonDown("Fire1")) {
-                Instantiate(ParticelObject, WeaponObject.transform.position, ParticelObject.transform.rotation);
+                Instantiate(ParticelObject, WeaponObject.transform.position, WeaponObject.transform.rotation);
             }
         }
     }
