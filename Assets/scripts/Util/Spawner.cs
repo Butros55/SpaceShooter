@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     {
         if (TimerFinished())
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(-29, 29), 18, 0);
+            Vector2 spawnPosition = new Vector2(Random.Range(-8.5f, 8.5f), 6);
             Instantiate(meteoridePrefab, spawnPosition, meteoridePrefab.transform.rotation);
         }
     }

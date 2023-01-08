@@ -9,13 +9,14 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material[] materials;
     private GameObject pendingObject;
 
-    private Vector3 pos;
+    private Vector2 pos;
 
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
     public float gridSize;
-    public bool gridOn = false;
-    public bool canPlace = true;
+    public bool gridOn;
+    public bool canPlace;
+    public bool isPlaced = false;
     [SerializeField] private Toggle gridToggle;
 
     // Update is called once per frame
@@ -23,10 +24,9 @@ public class BuildingManager : MonoBehaviour
     {
         if(pendingObject != null) {
             if(gridOn) {
-                pendingObject.transform.position = new Vector3(
+                pendingObject.transform.position = new Vector2(
                     RoundToNearestGrid(pos.x),
-                    RoundToNearestGrid(pos.y),
-                    RoundToNearestGrid(pos.z)
+                    RoundToNearestGrid(pos.y)
                     );
             }
 
@@ -38,6 +38,10 @@ public class BuildingManager : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0) && canPlace) {
                 PlaceObject();
+            }
+
+            if(Input.GetMouseButtonDown(1)) {
+                UnselectObject();
             }
         }
     }
@@ -55,8 +59,13 @@ public class BuildingManager : MonoBehaviour
     }
 
     public void PlaceObject() {
+        isPlaced = true;
         pendingObject.GetComponent<MeshRenderer>().material = materials[2];
         pendingObject = null;
+    }
+
+    public void UnselectObject() {
+        Destroy(pendingObject);
     }
 
     public void ToggleGrid() {

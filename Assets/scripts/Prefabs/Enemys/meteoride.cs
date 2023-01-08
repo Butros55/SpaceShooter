@@ -10,7 +10,7 @@ public class meteoride : MonoBehaviour
     public GameObject meteoridelayer2;
     public GameObject meteoridelayer3;
     AudioSource audioSource;
-    private Collider Collider;
+    private Collider2D Collider;
     private float CurrentExplosionTimer = 0;
     private float RevertedExplosionTimer;
     public float ExplosionTime;
@@ -25,7 +25,7 @@ public class meteoride : MonoBehaviour
 
     private void Start() {
         audioSource = GetComponent<AudioSource>();
-        Collider = GetComponent<Collider>();
+        Collider = GetComponent<Collider2D>();
         Red = ExplosionColor.r * 255 / 10;
         Green = ExplosionColor.g * 255 / 10;
         Blue = ExplosionColor.b * 255 / 10;
@@ -64,13 +64,13 @@ public class meteoride : MonoBehaviour
             Debug.Log(ExplosionColorScale);
         }
         // if (!isDestroyed) {
-        transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
+        transform.Translate(Vector2.down * (speed / 10) * Time.deltaTime, Space.World);
         // }
-        transform.Rotate(new Vector3(180,180,0) * Time.deltaTime);
+        transform.Rotate(new Vector2(180,180) * Time.deltaTime);
         DestroyMeteroide();
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Laser") {
             audioSource.Play();
             Collider.enabled = !Collider.enabled;
@@ -81,7 +81,7 @@ public class meteoride : MonoBehaviour
 
 
     private void DestroyMeteroide() {
-    Vector3 position = transform.position;
+    Vector2 position = transform.position;
     if (position.y <= -18) {
         Destroy(gameObject);
     }

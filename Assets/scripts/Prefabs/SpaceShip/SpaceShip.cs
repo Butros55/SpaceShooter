@@ -24,29 +24,29 @@ public class SpaceShip : MonoBehaviour
 
     void Movement()
     {
-        Vector3 movement = Vector3.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        Vector2 movement = Vector2.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(movement);
         
-        Vector3 position = transform.position;
-        position.x = Mathf.Clamp(position.x, -29, 29);
+        Vector2 position = transform.position;
+        position.x = Mathf.Clamp(position.x, -8.5f, 8.5f);
         transform.position = position;
 
     }
 
-    // private void OnTriggerEnter(Collider other) {
-    //     if (other.gameObject.tag == "Meteoride")
-    //     {
-    //         audioSource.Play();
-    //         Destroy(other.gameObject);
-    //         Destroy(SpaceShipDestroy);
-    //     }
-    // }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Meteoride")
+        {
+            audioSource.Play();
+            Destroy(other.gameObject);
+            Destroy(SpaceShipDestroy);
+        }
+    }
 
     private void StartOfLevel() {
-        Vector3 movement = Vector3.up * 10 * Time.deltaTime;
+        Vector2 movement = Vector2.up * 5 * Time.deltaTime;
 
-        Vector3 position = transform.position;
-        if (position.y < -10) {
+        Vector2 position = transform.position;
+        if (position.y < -4.2f) {
             transform.Translate(movement);
         }
     }
