@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Laser
   - Meteoride
+  - BaseObject
+  - Weapon
+  - EditorScreen
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
