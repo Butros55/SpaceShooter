@@ -71,7 +71,7 @@ public class meteoride : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Laser") {
+        if (other.gameObject.tag == "WeaponParticel") {
             audioSource.Play();
             Collider.enabled = !Collider.enabled;
             isDestroyed = true;

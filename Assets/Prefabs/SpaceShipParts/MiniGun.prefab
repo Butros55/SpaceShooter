@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 3542541883248782834}
   - component: {fileID: 2376015823360095572}
   - component: {fileID: 25043538730702387}
-  - component: {fileID: 4845816843928554788}
   - component: {fileID: -7927433499328095229}
   - component: {fileID: 6465679514250697174}
   - component: {fileID: 7519637165224435060}
@@ -179,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 4452009057318882330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.50000006, y: 0.50000006, z: 0.03}
+  m_LocalScale: {x: 0.50000006, y: 0.50000006, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3564827838904236575}
@@ -236,18 +235,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4845816843928554788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452009057318882330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ac4de6d4f3c094c8661fd7d77d8ad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &-7927433499328095229
 CircleCollider2D:
   m_ObjectHideFlags: 0

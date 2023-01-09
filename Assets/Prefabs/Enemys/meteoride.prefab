@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08741ca00f881ca4e82b0b6c02a3b4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 40
   meteoridelayer0: {fileID: 1941767004558876948}
   meteoridelayer1: {fileID: 1941767002785148439}
   meteoridelayer2: {fileID: 1941767003455627878}

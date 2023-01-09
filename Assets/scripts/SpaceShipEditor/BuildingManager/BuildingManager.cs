@@ -8,9 +8,7 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
     public GameObject[] objects;
     [SerializeField] private Material[] materials;
     private GameObject pendingObject;
-
     private Vector2 pos;
-
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
     public float gridSize;
@@ -25,24 +23,25 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
     private List<Vector3> ObjectPosition;
     private List<Quaternion> ObjectRotation;
     private int ObjectIndex;
+    public GameObject SpaceShip;
 
 
     public void LoadData(GameData data) {
-        this.ObjectPrefab = null;
-        this.ObjectIndexes = null;
-        this.ObjectPosition = null;
-        this.ObjectRotation = null;
-        this.ObjectPrefab = data.ObjectPrefab;
         this.ObjectIndexes = data.ObjectIndexes;
+        this.ObjectIndex = data.ObjectIndex;
+        this.ObjectPrefab = data.ObjectPrefab;
         this.ObjectPosition = data.ObjectPosition;
         this.ObjectRotation = data.ObjectRotation;
-        foreach (int Index in this.ObjectIndexes) {
-            Debug.Log(Index);
-            Instantiate(objects[this.ObjectPrefab[Index]], this.ObjectPosition[Index], this.ObjectRotation[Index]);
+        foreach (int Index in data.ObjectIndexes) {
+            Instantiate(objects[data.ObjectPrefab[Index]], data.ObjectPosition[Index] + SpaceShip.transform.position, data.ObjectRotation[Index], SpaceShip.transform);
         }
     }
 
     public void SaveData(ref GameData data) {
+        data.ObjectIndex = this.ObjectIndex;
+        data.ObjectPrefab = null;
+        data.ObjectPosition = null;
+        data.ObjectRotation = null;
         data.ObjectPrefab = this.ObjectPrefab;
         data.ObjectIndexes = this.ObjectIndexes;
         data.ObjectPosition = this.ObjectPosition;
@@ -93,7 +92,7 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
     }
 
     public void SelectObject(int index) {
-        pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        pendingObject = Instantiate(objects[index], pos, transform.rotation, SpaceShip.transform);
         BaseMaterial = pendingObject.GetComponent<MeshRenderer>().material;
         lastIndex = index;
     }
@@ -102,7 +101,7 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
         pendingObject.GetComponent<MeshRenderer>().material = BaseMaterial;
         this.ObjectPrefab.Add(this.lastIndex);
         this.ObjectIndexes.Add(this.ObjectIndex);
-        this.ObjectPosition.Add(pendingObject.transform.position);
+        this.ObjectPosition.Add(pendingObject.transform.localPosition);
         this.ObjectRotation.Add(pendingObject.transform.rotation);
         this.ObjectIndex += 1;
         pendingObject = null;
@@ -115,13 +114,13 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
         if(canPlace) {
             this.ObjectPrefab.Add(this.lastIndex);
             this.ObjectIndexes.Add(this.ObjectIndex);
-            this.ObjectPosition.Add(pendingObject.transform.position);
+            this.ObjectPosition.Add(pendingObject.transform.localPosition);
             this.ObjectRotation.Add(pendingObject.transform.rotation);
             this.ObjectIndex += 1;
             Debug.Log(this.ObjectIndex);
             Debug.Log(this.ObjectPrefab.Count);
             pendingObject = null;
-            pendingObject = Instantiate(objects[lastIndex], pos, transform.rotation);
+            pendingObject = Instantiate(objects[lastIndex], pos, transform.rotation, SpaceShip.transform);
         }
     }
 
