@@ -26,7 +26,12 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
     private List<Quaternion> ObjectRotation;
     private int ObjectIndex;
 
+
     public void LoadData(GameData data) {
+        this.ObjectPrefab = null;
+        this.ObjectIndexes = null;
+        this.ObjectPosition = null;
+        this.ObjectRotation = null;
         this.ObjectPrefab = data.ObjectPrefab;
         this.ObjectIndexes = data.ObjectIndexes;
         this.ObjectPosition = data.ObjectPosition;

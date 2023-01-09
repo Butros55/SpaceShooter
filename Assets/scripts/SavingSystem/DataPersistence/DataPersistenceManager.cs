@@ -21,8 +21,8 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     private void Start() {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName)
-;       this.dataPersistencesObjects = FindAllDataPersistenceObjects();
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.dataPersistencesObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
@@ -51,7 +51,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         Debug.Log("Saved GameObjects " + gameData.ObjectPrefab.Count);
-        Debug.Log("Loaded ObjectIndexes " + gameData.ObjectIndexes.Count);
+        Debug.Log("Saved ObjectIndexes " + gameData.ObjectIndexes.Count);
 
         dataHandler.Save(gameData);
 ;    }
