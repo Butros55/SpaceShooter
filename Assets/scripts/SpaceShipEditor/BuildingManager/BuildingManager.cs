@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingManager : MonoBehaviour
+public class BuildingManager : MonoBehaviour, IDataPersistence
 {
     public GameObject[] objects;
     [SerializeField] private Material[] materials;
@@ -20,6 +20,29 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Toggle gridToggle;
     public Material BaseMaterial;
     private int lastIndex;
+    private List<int> ObjectPrefab;
+    private List<int> ObjectIndexes;
+    private List<Vector3> ObjectPosition;
+    private List<Quaternion> ObjectRotation;
+    private int ObjectIndex;
+
+    public void LoadData(GameData data) {
+        this.ObjectPrefab = data.ObjectPrefab;
+        this.ObjectIndexes = data.ObjectIndexes;
+        this.ObjectPosition = data.ObjectPosition;
+        this.ObjectRotation = data.ObjectRotation;
+        foreach (int Index in this.ObjectIndexes) {
+            Debug.Log(Index);
+            Instantiate(objects[this.ObjectPrefab[Index]], this.ObjectPosition[Index], this.ObjectRotation[Index]);
+        }
+    }
+
+    public void SaveData(ref GameData data) {
+        data.ObjectPrefab = this.ObjectPrefab;
+        data.ObjectIndexes = this.ObjectIndexes;
+        data.ObjectPosition = this.ObjectPosition;
+        data.ObjectRotation = this.ObjectRotation;
+    }
 
     // Update is called once per frame
     void Update()
@@ -72,12 +95,26 @@ public class BuildingManager : MonoBehaviour
 
     public void PlaceObjectSingle() {
         pendingObject.GetComponent<MeshRenderer>().material = BaseMaterial;
+        this.ObjectPrefab.Add(this.lastIndex);
+        this.ObjectIndexes.Add(this.ObjectIndex);
+        this.ObjectPosition.Add(pendingObject.transform.position);
+        this.ObjectRotation.Add(pendingObject.transform.rotation);
+        this.ObjectIndex += 1;
         pendingObject = null;
+        Debug.Log(this.ObjectPrefab.Count);
+        Debug.Log(this.ObjectIndex);
     }
 
     public void PlaceObjectMutiple() {
         pendingObject.GetComponent<MeshRenderer>().material = BaseMaterial;
         if(canPlace) {
+            this.ObjectPrefab.Add(this.lastIndex);
+            this.ObjectIndexes.Add(this.ObjectIndex);
+            this.ObjectPosition.Add(pendingObject.transform.position);
+            this.ObjectRotation.Add(pendingObject.transform.rotation);
+            this.ObjectIndex += 1;
+            Debug.Log(this.ObjectIndex);
+            Debug.Log(this.ObjectPrefab.Count);
             pendingObject = null;
             pendingObject = Instantiate(objects[lastIndex], pos, transform.rotation);
         }
