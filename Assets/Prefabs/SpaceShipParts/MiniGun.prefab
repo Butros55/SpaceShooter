@@ -101,7 +101,7 @@ MonoBehaviour:
   ParticelObject: {fileID: 2147386673987418043, guid: 6ee2b82143e0fd6469929ead26fe6bd9, type: 3}
   WeaponObject: {fileID: 4323844320862324460}
   autoFire: 1
-  shootDelay: 0.4
+  shootDelay: 0.1
 --- !u!50 &6102201877890594894
 Rigidbody2D:
   serializedVersion: 4

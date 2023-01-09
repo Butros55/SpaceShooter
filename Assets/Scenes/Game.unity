@@ -3182,7 +3182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meteoridePrefab: {fileID: 1941767003107084904, guid: f855d0b3682309a4881a47d822031dce, type: 3}
-  timer: 0.2
+  timer: 1
 --- !u!1 &857690096
 GameObject:
   m_ObjectHideFlags: 0
