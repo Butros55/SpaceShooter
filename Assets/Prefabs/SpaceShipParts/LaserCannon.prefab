@@ -232,3 +232,4 @@ MonoBehaviour:
   ParticelObject: {fileID: 2147386673987418043, guid: e14baad8844174848beef8e740ad18b4, type: 3}
   WeaponObject: {fileID: 9087003140179564823}
   autoFire: 0
+  shootDelay: 0

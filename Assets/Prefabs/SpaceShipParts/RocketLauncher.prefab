@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5443687124859091338}
   - component: {fileID: 8821044764731133910}
   - component: {fileID: 357434983428664068}
-  - component: {fileID: 3011113356314121615}
   m_Layer: 5
   m_Name: RocketLauncher
   m_TagString: Weapon
@@ -128,17 +127,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ac4de6d4f3c094c8661fd7d77d8ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3011113356314121615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6702906042271231717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ecd0b88ea289e445822ca1053a8b255, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParticelObject: {fileID: 0}
-  WeaponObject: {fileID: 6702906042271231717}

@@ -3676,7 +3676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToNextScreen: 0
   Scene: Game
-  ChangeAfterSec: 2
+  ChangeAfterSec: 1
   OnAwake: 0
 --- !u!1 &1127582621
 GameObject:
@@ -3792,7 +3792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.3999939}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198247895
@@ -5533,7 +5533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToNextScreen: 0
   Scene: SpaceShipEditor
-  ChangeAfterSec: 2
+  ChangeAfterSec: 1
   OnAwake: 0
 --- !u!114 &1681099220
 MonoBehaviour:
