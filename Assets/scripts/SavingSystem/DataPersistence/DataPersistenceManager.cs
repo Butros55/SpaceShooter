@@ -40,9 +40,6 @@ public class DataPersistenceManager : MonoBehaviour
         }
         foreach (IDataPersistence dataPersistenceObj in dataPersistencesObjects) {
             dataPersistenceObj.LoadData(gameData);
-
-        Debug.Log("Loaded GameObjects " + gameData.ObjectPrefab.Count);
-        Debug.Log("Loaded ObjectIndexes " + gameData.ObjectIndexes.Count);
         }
     }
 
@@ -50,10 +47,6 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistenceObj in dataPersistencesObjects) {
             dataPersistenceObj.SaveData(ref gameData);
         }
-
-        Debug.Log("Saved GameObjects " + gameData.ObjectPrefab.Count);
-        Debug.Log("Saved ObjectIndexes " + gameData.ObjectIndexes.Count);
-
         dataHandler.Save(gameData);
 ;    }
 

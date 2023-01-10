@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2412531529640231789}
   - component: {fileID: 5879208651224851176}
   - component: {fileID: -1822936333810287017}
+  - component: {fileID: 3588946222471622545}
   m_Layer: 0
   m_Name: SquareBase
   m_TagString: BaseObject
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4291398189849318604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.005}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -132,3 +133,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.95, y: 0.95}
   m_EdgeRadius: 0
+--- !u!114 &3588946222471622545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291398189849318604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7306e64922ea448dd77f47b0c888d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlaced: 0

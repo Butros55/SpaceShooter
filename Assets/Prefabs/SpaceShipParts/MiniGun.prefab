@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4323844320862324460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.003904923, y: 0.43198225, z: 0}
-  m_LocalScale: {x: 0.37499997, y: 1.5, z: 0.6}
+  m_LocalScale: {x: 0.37499997, y: 1.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3542541883248782834}
@@ -113,7 +113,8 @@ GameObject:
   - component: {fileID: 25043538730702387}
   - component: {fileID: 6465679514250697174}
   - component: {fileID: 7519637165224435060}
-  - component: {fileID: 3633652888880868034}
+  - component: {fileID: 3917644038369136079}
+  - component: {fileID: -4268591046107369381}
   m_Layer: 0
   m_Name: MiniGun
   m_TagString: Weapon
@@ -220,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5069a2355d15c1c4cac2e9306511278b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &3633652888880868034
-PolygonCollider2D:
+--- !u!58 &3917644038369136079
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -230,39 +231,22 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.43100902, y: 0.2554112}
-      - {x: 0.38586038, y: 0.3235889}
-      - {x: 0.29498595, y: 0.4138702}
-      - {x: 0.20009252, y: 0.45674488}
-      - {x: 0.20065683, y: 1.1957736}
-      - {x: -0.204698, y: 1.1916478}
-      - {x: -0.19129385, y: 0.4671397}
-      - {x: -0.31691936, y: 0.3941409}
-      - {x: -0.4450171, y: 0.23697168}
-      - {x: -0.49617916, y: 0.10548946}
-      - {x: -0.5016002, y: -0.052255675}
-      - {x: -0.4487655, y: -0.21943635}
-      - {x: -0.33801812, y: -0.3739653}
-      - {x: -0.18351649, y: -0.47098917}
-      - {x: 0.009812154, y: -0.5040851}
-      - {x: 0.16774018, y: -0.4754009}
-      - {x: 0.30308452, y: -0.4106758}
-      - {x: 0.4125547, y: -0.29966393}
-      - {x: 0.48335168, y: -0.14359425}
-      - {x: 0.50105286, y: -0.0034691542}
-      - {x: 0.47303432, y: 0.1619174}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &-4268591046107369381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452009057318882330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7306e64922ea448dd77f47b0c888d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlaced: 0

@@ -33,7 +33,8 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
         this.ObjectPosition = data.ObjectPosition;
         this.ObjectRotation = data.ObjectRotation;
         foreach (int Index in data.ObjectIndexes) {
-            Instantiate(objects[data.ObjectPrefab[Index]], data.ObjectPosition[Index] + SpaceShip.transform.position, data.ObjectRotation[Index], SpaceShip.transform);
+            GameObject CurrentObject = Instantiate(objects[data.ObjectPrefab[Index]], data.ObjectPosition[Index] + SpaceShip.transform.position, data.ObjectRotation[Index], SpaceShip.transform);
+            CurrentObject.GetComponent<CheckPlacement>().IsPlaced = true;
         }
     }
 
@@ -104,9 +105,8 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
         this.ObjectPosition.Add(pendingObject.transform.localPosition);
         this.ObjectRotation.Add(pendingObject.transform.rotation);
         this.ObjectIndex += 1;
+        pendingObject.GetComponent<CheckPlacement>().IsPlaced = true;
         pendingObject = null;
-        Debug.Log(this.ObjectPrefab.Count);
-        Debug.Log(this.ObjectIndex);
     }
 
     public void PlaceObjectMutiple() {
@@ -117,8 +117,7 @@ public class BuildingManager : MonoBehaviour, IDataPersistence
             this.ObjectPosition.Add(pendingObject.transform.localPosition);
             this.ObjectRotation.Add(pendingObject.transform.rotation);
             this.ObjectIndex += 1;
-            Debug.Log(this.ObjectIndex);
-            Debug.Log(this.ObjectPrefab.Count);
+            pendingObject.GetComponent<CheckPlacement>().IsPlaced = true;
             pendingObject = null;
             pendingObject = Instantiate(objects[lastIndex], pos, transform.rotation, SpaceShip.transform);
         }
