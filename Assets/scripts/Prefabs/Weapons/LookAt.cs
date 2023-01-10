@@ -8,7 +8,7 @@ public class LookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAtTarget();
+        // LookAtTarget();
     }
 
     private void LookAtTarget() {
